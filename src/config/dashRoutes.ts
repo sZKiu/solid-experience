@@ -8,7 +8,6 @@ import IconUsers from '../atoms/Icons/Stroke/IconUsers';
 import IconViewList from '../atoms/Icons/Stroke/IconViewList';
 import { permissions } from './permissions';
 
-
 export const dashRoutes = [
     {
         path: '/',
@@ -161,6 +160,43 @@ export const dashRoutes = [
     {
         path: '/*all',
         component: lazy( () => import( '../pages/error/Custom404/Custom404' ) ),
+    },
+    {
+        path: '/category',
+        // @ts-ignore
+        component: lazy( () => import( '../pages/category' ) ),
+        name: 'Category',
+        icon: 'MdOutlineCategory',
+        iconType: 'React',
+        showItem: true,
+        permission: 'Category',
+    },
+    {
+        path: '/product',
+        name: 'Product',
+        icon: 'SlSocialDropbox',
+        iconType: 'React',
+        showItem: true,
+        permission: 'Product',
+        children:
+        [
+            {
+                path: '/',
+                component: lazy( () => import( '../pages/product' ) ),
+                name: 'a_list',
+                icon: IconViewList,
+                showItem: true,
+                permission: permissions.USERS.LIST,
+            },
+            {
+                path: '/create',
+                component: lazy( () => import( '../pages/product/create' ) ),
+                name: 'a_create',
+                icon: IconPlus,
+                showItem: true,
+                permission: permissions.USERS.SAVE,
+            },
+        ],
     },
 ];
 

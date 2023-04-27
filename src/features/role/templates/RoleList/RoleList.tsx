@@ -4,7 +4,7 @@ import { Text, useI18n } from 'solid-i18n';
 import { Component, For, Show } from 'solid-js';
 import IconPlus from '../../../../atoms/Icons/Stroke/IconPlus';
 import { permissions } from '../../../../config/permissions';
-import Filter from '../../../filterSort/organisms/Filter/Filter';
+import Filter from '../../../filterSort/validations/organisms/Filter/Filter';
 import useTransformTranslatedOptions from '../../../shared/hooks/useTransformTranslatedOptions';
 import ButtonScrollUp from '../../../shared/molecules/ButtonScrollUp/ButtonScrollUp';
 import GeneralLoader from '../../../shared/templates/GeneralLoader';

@@ -57,7 +57,7 @@ Each feature is divided:
 - User
 - Shared
 
-The directory structures for business domains are as follows: 
+The directory structures for business  are as follows: 
 
 **Folder structure of a module**
 

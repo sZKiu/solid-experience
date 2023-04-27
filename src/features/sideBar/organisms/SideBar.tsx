@@ -56,6 +56,7 @@ const SideBar: Component<SideBarProps> = ( props ) =>
                         </div>
                         <DashItems expanded={true} authUser={props.authUser}/>
                     </div>
+
                     <div class="justify-self-end">
                         <LogoutSideBarItem user={props.authUser} getExpanded={true} sectionSelected=""/>
                     </div>

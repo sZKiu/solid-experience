@@ -123,6 +123,74 @@
       "id": "mz0qDFJ"
     }
   ],
+  "category": [
+    {
+      "title": "Food",
+      "enable": true
+    }
+  ],
+  "product": [
+    {
+      "id": 1,
+      "title": "Car",
+      "enable": true,
+      "price": 5,
+      "category": {
+        "title": "Food",
+        "enable": true
+      }
+    },
+    {
+      "id": 2,
+      "title": "Chocolate",
+      "enable": true,
+      "price": 1,
+      "category": {
+        "title": "Food",
+        "enable": true
+      }
+    },
+    {
+      "title": "a",
+      "enable": true,
+      "price": 2,
+      "category": {
+        "title": "a",
+        "enable": true
+      },
+      "id": 3
+    },
+    {
+      "title": "a",
+      "enable": true,
+      "price": 0,
+      "category": {
+        "title": "a",
+        "enable": true
+      },
+      "id": 4
+    },
+    {
+      "title": "a",
+      "enable": true,
+      "price": 0,
+      "category": {
+        "title": "a",
+        "enable": true
+      },
+      "id": 5
+    },
+    {
+      "title": "a",
+      "enable": true,
+      "price": 0,
+      "category": {
+        "title": "a",
+        "enable": true
+      },
+      "id": 6
+    }
+  ],
   "super-admin-login": {
     "user": {
       "id": "922465bc-db4e-4794-b25c-9311ce124e00",

@@ -57,6 +57,7 @@ const DashItems: Component<DashItemsProps> = ( props ) =>
                             path={ dashRoute.path }
                             expanded={props.expanded}
                             sectionSelected={sectionSelected()}
+                            iconType={dashRoute?.iconType}
                         >
                             <Show when={getShowSubItems() && sectionSelected() === dashRoute.path}>
                                 <For each={dashRoute.children}>

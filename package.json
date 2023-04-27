@@ -51,13 +51,14 @@
     "date-time-picker-solid": "^1.0.9",
     "i18n-mini": "^1.1.0",
     "moment": "^2.29.4",
+    "react-icons": "^4.8.0",
     "solid-i18n": "^1.0.4",
     "solid-icons": "^1.0.4",
     "solid-js": "^1.7.3",
     "solid-transition-group": "^0.2.2",
     "terser": "^5.17.1",
     "velocity-animate": "^1.5.2",
-    "yup": "^1.1.1"
+    "yup": "^0.32.9"
   },
   "engines": {
     "node": ">=16.*"
