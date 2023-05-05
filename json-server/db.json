@@ -103,10 +103,7 @@
       "id": "O1fzV8l"
     },
     {
-      "permissions": [
-        "authSyncPermissions",
-        "getPermissions"
-      ],
+      "permissions": ["authSyncPermissions", "getPermissions"],
       "enable": false,
       "gender": "O",
       "country": "AR",
@@ -124,71 +121,45 @@
     }
   ],
   "category": [
-    {
-      "title": "Food",
-      "enable": true
-    }
+    { "title": "a", "enabled": true },
+    { "title": "b", "enable": true },
+    { "title": "b", "enable": false }
   ],
   "product": [
-    {
-      "id": 1,
-      "title": "Car",
-      "enable": true,
-      "price": 5,
-      "category": {
-        "title": "Food",
-        "enable": true
-      }
-    },
-    {
-      "id": 2,
-      "title": "Chocolate",
-      "enable": true,
-      "price": 1,
-      "category": {
-        "title": "Food",
-        "enable": true
-      }
-    },
-    {
-      "title": "a",
-      "enable": true,
-      "price": 2,
-      "category": {
-        "title": "a",
-        "enable": true
-      },
-      "id": 3
-    },
     {
       "title": "a",
       "enable": true,
       "price": 0,
-      "category": {
-        "title": "a",
-        "enable": true
-      },
+      "category": { "title": "a", "enable": true },
       "id": 4
     },
     {
       "title": "a",
       "enable": true,
       "price": 0,
-      "category": {
-        "title": "a",
-        "enable": true
-      },
+      "category": { "title": "a", "enable": true },
       "id": 5
     },
     {
       "title": "a",
       "enable": true,
       "price": 0,
-      "category": {
-        "title": "a",
-        "enable": true
-      },
+      "category": { "title": "a", "enable": true },
       "id": 6
+    },
+    {
+      "title": "b",
+      "enable": true,
+      "price": 11,
+      "category": { "title": "b", "enable": true },
+      "id": 7
+    },
+    {
+      "title": "b",
+      "enable": false,
+      "price": 44,
+      "category": { "title": "b", "enable": false },
+      "id": 8
     }
   ],
   "super-admin-login": {
@@ -218,10 +189,7 @@
   "permissions": [
     {
       "group": "AUTH",
-      "permissions": [
-        "authSyncPermissions",
-        "getPermissions"
-      ]
+      "permissions": ["authSyncPermissions", "getPermissions"]
     },
     {
       "group": "FILES",
@@ -260,29 +228,21 @@
   ],
   "roles": [
     {
-      "permissions": [
-        "authSyncPermissions"
-      ],
+      "permissions": ["authSyncPermissions"],
       "enable": true,
       "name": "Test",
       "slug": "test",
       "id": 1
     },
     {
-      "permissions": [
-        "authSyncPermissions",
-        "getPermissions",
-        "filesUpload"
-      ],
+      "permissions": ["authSyncPermissions", "getPermissions", "filesUpload"],
       "enable": true,
       "name": "Admin",
       "slug": "admin",
       "id": 2
     },
     {
-      "permissions": [
-        "getPermissions"
-      ],
+      "permissions": ["getPermissions"],
       "enable": false,
       "name": "Test",
       "slug": "test",

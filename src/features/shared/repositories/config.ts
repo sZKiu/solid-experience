@@ -42,6 +42,20 @@ export const config = {
                 update: `${BACKEND_BASE_PATH}/roles`,
                 remove: `${BACKEND_BASE_PATH}/roles`,
             },
+            products: {
+                getAll: `${BACKEND_BASE_PATH}/product`,
+                getOne: `${BACKEND_BASE_PATH}/product`,
+                create: `${BACKEND_BASE_PATH}/product`,
+                update: `${BACKEND_BASE_PATH}/product`,
+                remove: `${BACKEND_BASE_PATH}/product`,
+            },
+            categories: {
+                getAll: `${BACKEND_BASE_PATH}/category`,
+                getOne: `${BACKEND_BASE_PATH}/category`,
+                create: `${BACKEND_BASE_PATH}/category`,
+                update: `${BACKEND_BASE_PATH}/category`,
+                remove: `${BACKEND_BASE_PATH}/category`,
+            },
         },
     },
 };

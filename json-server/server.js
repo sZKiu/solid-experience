@@ -24,9 +24,8 @@ server.use( jsonServer.rewriter( {
     '/auth/forgot-password': '/forgot-password',
     '/auth/login?provider=local': '/super-admin-login',
     '/auth/permissions': '/permissions',
-    '/test/category': '/category',
-    '/test/product': '/product',
-    '/test/dou': '/dou',
+    '/api/category': '/category',
+    '/api/product': '/product',
 } ) );
 
 server.put( '/users/assign-role/:userId', assignRoles );
@@ -48,15 +47,35 @@ server.post( '/category', ( req, res, next ) =>
     next();
 } );
 
-server.post( '/product', ( req, res, next ) =>
+server.post( '/product', ( req, res ) =>
 {
     if ( !req.body.title || typeof req.body.title !== 'string' ||
-    req.body.price === undefined || typeof req.body.price !== 'number' ||
-    !req.body.enable || typeof req.body.enable !== 'boolean' || typeof req.body.category !== 'object' || !req.body.category.title || typeof req.body.category.title !== 'string' || !req.body.category.enable || typeof req.body.category.enable !== 'boolean' )
+    req.body.price === undefined || typeof req.body.price !== 'number' || typeof req.body.enable !== 'boolean' || typeof req.body.category !== 'object' || !req.body.category.title || typeof req.body.category.title !== 'string' || typeof req.body.category.enable !== 'boolean' )
     {
         return res.status( 400 ).json( { error: 'Datos inválidos' } );
     }
-    next();
+
+    const body = req.body;
+    const data = fs.readFileSync( 'db.json' );
+    const db = JSON.parse( data );
+
+    const existCat = db.category.findIndex( ( cat ) => cat.title === body.category.title && cat.enable === body.category.enable );
+
+    if ( existCat === -1 )
+    {
+        db.category.push( body.category );
+    }
+
+    db.product.push( {
+        ...body,
+        id: Number( db.product.at( -1 ).id ) + 1,
+    } );
+
+    const newDataStr = JSON.stringify( db );
+
+    fs.writeFileSync( 'db.json', newDataStr );
+
+    return res.status( 201 ).json( { body } );
 } );
 
 server.delete( '/product/:id', ( req, res ) =>

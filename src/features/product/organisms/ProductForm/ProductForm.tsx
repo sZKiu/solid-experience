@@ -1,14 +1,15 @@
-import axios from 'axios';
 import { createSignal } from 'solid-js';
 import { Button, FormControl, FormControlLabel, Input } from '@hope-ui/core';
 import { Link } from '@solidjs/router';
 import { Component } from 'solid-js';
 import { Text, useI18n } from 'solid-i18n';
 import { darkInput, darkNeutralButton, darkPrimaryButtonWithBackground, placeholderInput } from '../../../shared/constants/hopeAdapter';
+import ProductRepository from '../../repositories/ProductRepositories';
 
 
 const UserForm: Component<any> = () =>
 {
+    const productRepository = new ProductRepository();
     const i18n = useI18n();
     const { t } = i18n;
 
@@ -18,26 +19,28 @@ const UserForm: Component<any> = () =>
     const [ getCatTitle, setCatTitle ] = createSignal( '' );
     const [ getCatEnable, setCatEnable ] = createSignal( '' );
 
+    const onSubmit = ( e: Event ) =>
+    {
+        e.preventDefault();
+
+        productRepository.createProduct( { data: {
+            title: getTitle(),
+            enable: getEnable() == 'False' || getEnable() == 'false' ? false : true,
+            price: typeof Number( getPrice() ) === 'number' ? Number( getPrice() ) : 0,
+            category: {
+                title: getCatTitle(),
+                enable: getEnable() == 'False' || getEnable() == 'false' ? false : true,
+            },
+        } } );
+
+        setTimeout( () =>
+        {
+            location.assign( '/product' );
+        }, 500 );
+    };
 
     return (
-        <form class="form_flex" onSubmit={ async ( e ) =>
-        {
-            e.preventDefault();
-
-            axios( {
-                url: 'http://localhost:8090/product',
-                method: 'POST',
-                data: {
-                    title: getTitle(),
-                    enable: getEnable() !== 'False' || getEnable() !== 'false' ? true : false,
-                    price: typeof getPrice() === 'number' ? Number( getPrice() ) : 0,
-                    category: {
-                        title: getCatTitle(),
-                        enable: getEnable() !== 'False' || getEnable() !== 'false' ? true : false,
-                    },
-                },
-            } );
-        } }>
+        <form class="form_flex" onSubmit={onSubmit}>
             <h2 class="section_title_opaque border_bottom">
                 <Text message="Product Information" />
             </h2>

@@ -1,8 +1,8 @@
-import axios from 'axios';
 import { Component, For } from 'solid-js';
 import { Product } from '../../interface/Products';
 import { IconButton } from '@hope-ui/core';
 import IconTrash from '../../../../atoms/Icons/Stroke/IconTrash';
+import ProductRepository from '../../repositories/ProductRepositories';
 
 interface CategoryCardProps {
     categories: Product[] | [];
@@ -10,11 +10,13 @@ interface CategoryCardProps {
 
 const ProductCard: Component<CategoryCardProps> = ( props ) =>
 {
+    const productRepository = new ProductRepository();
+
     return (
-        <div class="grid_cards_container">
+        <div class="grid_cards_container justify-items-center">
             <For each={props.categories}>
                 {( data ) =>
-                    <div class="p-4 bg-[#202425] rounded-md text-white w-fit font-medium">
+                    <div class="p-4 bg-[#202425] rounded-md text-white w-fit font-medium min-w-[12rem]">
                         <div>
                             <div class="flex gap-1 items-center">
                                 <span class="text-lg">Name:</span>
@@ -39,10 +41,7 @@ const ProductCard: Component<CategoryCardProps> = ( props ) =>
 
                         <div class="flex justify-center mt-2" onClick={() =>
                         {
-                            axios( {
-                                url: `http://localhost:8090/product/${data.id}`,
-                                method: 'DELETE',
-                            } );
+                            productRepository.removeProduct( { id: data.id } );
 
                             location.reload();
                         }} >

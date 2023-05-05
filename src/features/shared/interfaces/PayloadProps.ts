@@ -4,7 +4,7 @@ interface PayloadProps<T=Record<string, any>>
 {
     user?: LoginApi;
     queryParams?: any;
-    id?: string;
+    id?: string | number;
     data?: T;
 }
 

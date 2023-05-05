@@ -1,13 +1,17 @@
-import PrivateLayout from '../../features/shared/layout/PrivateLayout/PrivateLayout';
-import CategoryList from '../../features/category/templates/CategoryList/CategoryList';
-import { Component } from 'solid-js';
+import { Component, createResource } from 'solid-js';
+import CategoryTemplate from '../../features/category/templates/CategoryTemplate/CategoryTemplate';
+import CategoryRepository from '../../features/category/repositories/CategoryRepositories';
 
 const IndexPage: Component = () =>
 {
+    const categoryRepository = new CategoryRepository();
+
+    const [ categories ] = createResource( () => categoryRepository.getCategories() );
+
     return (
-        <PrivateLayout>
-            <CategoryList/>
-        </PrivateLayout>
+        <CategoryTemplate
+            categories={categories()}
+        />
     );
 };
 
